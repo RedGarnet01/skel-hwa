@@ -18,3 +18,12 @@ def index(request):
     return render(request, 'index.html', {
         'things': things,
     })
+
+def thing_detail(request, id):
+    # grab the object...
+    thing = Thing.objects.get(id=id)
+
+    # and pass to the template
+    return render(request, 'collection/thing_detail.html', {
+        'thing': thing,
+    })
