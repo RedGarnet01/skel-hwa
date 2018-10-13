@@ -8,4 +8,5 @@
 {% block content %}
     <h1>{{ thing.name }}</h1>
     <p>{{ thing.description }}</p>
+    <a href="{% url 'edit_thing' id=thing.id %}">Edit me!</a>
 {% endblock content %}
