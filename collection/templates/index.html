@@ -6,35 +6,14 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>Hello World!</h1>
+    {% for thing in things %}
+        <h2>{{ thing.name }}</h2>
+        <p>{{ thing.description }}</p>
+    {% endfor %}
+
+    <!-- <h1>Hello World!</h1> -->
     <!-- here’s the variable we are passing in -->
-    <p>
-        {% if number %}Number exists!{% endif %}
-    </p>
-    <p>There are six dogs!
-        <b>
-            {% if number == 6 %}
-                True
-            {% else %}
-                False
-            {% endif %}
-        </b>
-    </p>
-    <p>There are
-        {{ number }}
-        dog{{ number|pluralize }}!</p>
-    <p>There are
-        {{ number }}
-        walrus{{ number|pluralize:"es" }}!</p>
-    <p>There are
-        {{ number|apnumber }}
-        dogs!</p>
-    <p>This is my name:
-        {{ thing }}</p>
-    <p>This is my name:
-        {{ thing|slugify }}</p>
-    <p>This is my name:
-        {{ thing|title }}</p>
-    <p>This is my name:
-        {{ thing|truncatewords:1 }}</p>
+    <!-- <p> {% if number %}Number exists!{% endif %} </p> <p>There are six dogs! <b> {% if number == 6 %} True {% else %} False {% endif %} </b> </p> <p>There are {{ number }} dog{{ number|pluralize }}!</p> <p>There are {{ number }} walrus{{
+    number|pluralize:"es" }}!</p> <p>There are {{ number|apnumber }} dogs!</p> <p>This is my name: {{ thing }}</p> <p>This is my name: {{ thing|slugify }}</p> <p>This is my name: {{ thing|title }}</p> <p>This is my name: {{ thing|truncatewords:1 }}</p>
+    -->
 {% endblock content %}
