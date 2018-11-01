@@ -8,5 +8,12 @@
 {% block content %}
     <h1>{{ thing.name }}</h1>
     <p>{{ thing.description }}</p>
-    <a href="{% url 'edit_thing' id=thing.id %}">Edit me!</a>
+    <p>{{ thing.user}}</p>
+    {% if user == thing.user %}
+        <p>
+            <a href="{% url 'edit_thing' id=thing.id %}">
+                Edit me!
+            </a>
+        </p>
+    {% endif %}
 {% endblock content %}
