@@ -24,7 +24,7 @@ SECRET_KEY = '9d9$@1dahvvy3w$#7xiqg2ey)!0(fzml$%y!)1$-2^o(xv-4-w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # XXX: Update me before launch!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
