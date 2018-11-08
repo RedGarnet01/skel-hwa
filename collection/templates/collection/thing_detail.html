@@ -9,7 +9,7 @@
     <h1>{{ thing.name }}</h1>
     <p>{{ thing.description }}</p>
     <p>{{ thing.user}}</p>
-    {% if user == thing.user %}
+    {% if user.username == thing.user.username %}
         <p>
             <a href="{% url 'edit_thing' id=thing.id %}">
                 Edit me!

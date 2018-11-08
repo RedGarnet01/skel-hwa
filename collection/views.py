@@ -24,6 +24,7 @@ def index(request):
         'things': things,
     })
 
+
 def thing_detail(request, id):
     # grab the object...
     thing = Thing.objects.get(id=id)
@@ -32,6 +33,7 @@ def thing_detail(request, id):
     return render(request, 'collection/thing_detail.html', {
         'thing': thing,
     })
+
 
 @login_required
 def edit_thing(request, id):
@@ -65,6 +67,7 @@ def edit_thing(request, id):
         'form': form,
     })
 
+
 def create_thing(request):
     form_class = ThingForm
 
@@ -93,4 +96,17 @@ def create_thing(request):
 
     return render(request, 'collection/create_thing.html', {
         'form': form,
+    })
+
+
+def browse_by_name(request, initial=None):
+    if initial:
+        things = Thing.objects.filter(
+             name__istartswith=initial).order_by('name')
+    else:
+        things = Thing.objects.all().order_by('name')
+
+    return render(request, 'search/search.html', {
+        'things': things,
+        'initial': initial,
     })
