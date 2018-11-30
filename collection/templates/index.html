@@ -7,12 +7,13 @@
 
 {% block content %}
     {% for thing in things %}
-        <h2>
+        <h2 class="cover-heading">
             <a href="{% url 'thing_detail' id=thing.id %}">
                 {{ thing.name }}
             </a>
         </h2>
-        <p>{{ thing.description }}</p>
+        <p class="lead">{{ thing.description }}</p>
+
     {% endfor %}
 
     <!-- {% for thing in things %} <h2>{{ thing.name }}</h2> <p>{{ thing.description }}</p> {% endfor %} -->

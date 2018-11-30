@@ -2,45 +2,37 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             {% block title %}My Hello Web App Project{% endblock title %}
         </title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
         {% block header %}{% endblock header %}
+        {% include 'collection/includes/css.html' %}
     </head>
-    <body>
-        <header>
-            <h1>Hello Web App</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'about' %}">About</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'browse' %}">Browse</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'auth_logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url 'auth_login' %}">Login</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'registration_register'%}">Register</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </header>
-        {% block content %}{% endblock content %}
-        {% block footer %}{% endblock footer %}
+    <body class="text-center">
+
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <!-- Header -->
+            {% include 'collection/includes/header.html' %}
+
+            <main role="main" class="inner cover">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        {% block content %}{% endblock content %}
+                    </div>
+
+                </div>
+
+            </main>
+            {% include 'collection/includes/footer.html' %}
+
+        </div>
+
+        {% include 'collection/includes/js.html' %}
+
     </body>
 </html>
